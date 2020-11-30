@@ -33,8 +33,8 @@ class IssuesList extends React.Component {
             data: this.state.issues,
             columns: [
                 { title: "STATUS", data: "FIRST_NAME" },
-                { title: "ISSUE TYPE", data: "LAST_NAME" },
                 { title: "ISSUE OCCURED DATE", data: "EMAIL" },
+                { title: "ISSUE TYPE", data: "LAST_NAME" },
                 { title: "DESCRIPTION", data: "DATE_FORMATTED" },
                 { title: "STEP'S TO REPRODUCE ISSUE", data: "AGE" },
                 { title: "ACTION", data: "EDIT" }
@@ -50,42 +50,57 @@ class IssuesList extends React.Component {
                     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">REPORTED ISSUES</h3>
                     <div class="card-body">
                         <div id="table" class="table-editable">
+                            <div class="form-row">
+                                <div class="form-group col-md-2">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>ALL</option>
+                                        <option>OPEN</option>
+                                        <option>CHECKING</option>
+                                        <option>CLOSED</option>
+                                    </select>
+                                    <small id="passwordHelpBlock" class="form-text text-muted">Filter Reported Issues By Status</small>
+
+                                </div>
+                                <div class="form-group col-md-2" style={{ "padding-top": "7px" }}>
+                                    <button type="button" class="btn btn-primary btn-rounded btn-sm my-0">FILTER</button>
+                                </div>
+                            </div>
                             <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                            {/* <table id="issuesList" class="table table-bordered table-responsive-md table-striped text-center" ref={(el) => (this.el = el)}> */}
-                            <table id="issuesList" class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">Status</th>
-                                    <th class="text-center">Issue Occured Date</th>
-                                    <th class="text-center">Description</th>
-                                    <th class="text-center">Steps To Re-Produce Issue</th>
-                                    <th class="text-center">Photo / Video</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                    <td><span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">OPEN</button></span></td>
-                                    <td class="pt-3-half">2020-11-25 11:12 AM</td>
-                                    <td class="pt-3-half">Unable to report issue</td>
-                                    <td class="pt-3-half"> -- </td>
-                                    <td class="pt-3-half"> </td>
-                                    <td>
-                                        <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">DELETE</button></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                <td><span class="table-remove"><button type="button" class="btn btn-success btn-rounded btn-sm my-0">CLOSED</button></span></td>
-                                    <td class="pt-3-half">2020-11-20 11:12 AM</td>
-                                    <td class="pt-3-half">Unable to save the issue</td>
-                                    <td class="pt-3-half">----</td>
-                                    <td class="pt-3-half"> </td>
-                                    <td>
-                                        <span class="table-remove"><button type="button"
-                                            class="btn btn-danger btn-rounded btn-sm my-0">DELETE</button></span>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <table id="issuesList" class="table table-bordered table-responsive-md table-striped text-center" ref={(el) => (this.el = el)}>
+                            {/* </table>/<table id="issuesList" class="table table-bordered table-responsive-md table-striped text-center"> */}
+
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">STATUS</th>
+                                        <th class="text-center">ISSUE OCCURED DATE</th>
+                                        <th class="text-center">DESCRIPTION</th>
+                                        <th class="text-center">STEP'S TO REPRODUCE ISSUE</th>
+                                        <th class="text-center">ATTACHMENT'S</th>
+                                        <th class="text-center">ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="badge badge-warning">OPEN</span></td>
+                                        <td class="pt-3-half">2020-11-25 11:12 AM</td>
+                                        <td class="pt-3-half">BUG-1</td>
+                                        <td class="pt-3-half"> Unable to report issue </td>
+                                        <td class="pt-3-half"> </td>
+                                        <td>
+                                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">DELETE</button></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge badge-success">CLOSED</span></td>
+                                        <td class="pt-3-half">2020-11-20 11:12 AM</td>
+                                        <td class="pt-3-half">BUG-2</td>
+                                        <td class="pt-3-half">Unable to save the issue</td>
+                                        <td class="pt-3-half"> </td>
+                                        <td>
+                                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">DELETE</button></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
